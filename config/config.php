@@ -309,7 +309,7 @@ function searchPinjamMember($keyword)
   $statusString = implode(',', $statusArray);
 
   // Search Peminjaman Member
-  $searchPinjam = "SELECT peminjaman.id, peminjaman.id_buku, buku.cover, buku.judul, peminjaman.nisn, member.nama, user.username,peminjaman.harga,user.no_telp, peminjaman.tgl_pinjam, peminjaman.tgl_kembali, peminjaman.status
+  $searchPinjam = "SELECT peminjaman.id AS peminjaman_id, peminjaman.id_buku, buku.cover, buku.judul, peminjaman.nisn, member.nama, user.username,peminjaman.harga,user.no_telp, peminjaman.tgl_pinjam, peminjaman.tgl_kembali, peminjaman.status
         FROM peminjaman
         INNER JOIN buku ON peminjaman.id_buku = buku.id_buku
         INNER JOIN member ON peminjaman.nisn = member.nisn
@@ -483,6 +483,7 @@ function pengembalian() {
       mysqli_query($connection, $queryUpdateStatus);
   }
 }
+
 
 
 
